@@ -1,0 +1,72 @@
+-----------------zipkin-------------
+
+step1:
+ Add dependency in pom.xml in EurekaClient1 project.
+
+
+
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-zipkin</artifactId>
+</dependency>
+
+----------------------------------------
+
+Add BELOW LINES in application.properties in EurekaClient1 project.
+
+spring.sleuth.sampler.probability=1.0 
+logging.level.org.springframework.web.servlet.DispatcherServlet=DEBUG
+
+------------------------------------------------------------------
+
+step2:
+
+download zipkin jar file.
+
+
+------------------------------------------------------------------
+
+step3:
+Run through command prompt.
+
+command://///
+
+java -jar "zipkin-server-2.11.7-exec (1).jar"
+
+
+------------------------------------------------------------------
+
+
+step4:
+
+
+1..-> run the EurekaClient1 projects in STS.
+
+2..-> http://localhost:8761/   (chrome)
+
+3..->
+((((Below link is present inside the link http://localhost:8761/)))
+
+http://lin76001843.corp.capgemini.com:9998/actuators/info  (chrome)
+
+
+4..-> http://lin76001843.corp.capgemini.com:9998/client1
+
+
+5..-> default link for zipkin.
+
+http://localhost:9411/zipkin/ (chrome)
+        -->find traces
+         ----show all the searched datas.	
+
+------------------------------------------------------------------
+
+
+
+
+
+
